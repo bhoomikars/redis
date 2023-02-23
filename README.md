@@ -48,7 +48,8 @@ data:
   <img width="676" alt="Screenshot 2023-02-23 at 2 33 19 PM" src="https://user-images.githubusercontent.com/57263117/220863219-11027469-d40b-44fc-9896-864adf389c04.png">
 
 5. use config-volume in your container 
-![Uploading Screenshot 2023-02-23 at 2.36.06 PM.png…]()
+<img width="913" alt="Screenshot 2023-02-23 at 2 36 06 PM" src="https://user-images.githubusercontent.com/57263117/220863984-a30b1133-9b83-4495-a5b8-96dd70966c54.png">
+
 
 6 use same config.location in your docker --spring.config.location=/config/application.prod.properties
 
