@@ -1,5 +1,7 @@
 # Application name is redis-swagger
 
+Config maps wiht key-value https://github.com/bhoomikars/redis/commit/7fd989f5800d8488a7981065b269207772dcb8a9
+
 1. Define a Dockerfile like below
  - FROM openjdk:8-jre
  - ADD target/redis-swagger-0.0.8-SNAPSHOT.jar app.jar
