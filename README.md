@@ -55,5 +55,6 @@ data:
 
 6 use same config.location in your docker --spring.config.location=/config/application.prod.properties
 
+  Connecting to prod server:
   
-  
+   kubectl port-forward redis-55b654cbc9-4dgfr 6379:6379 
