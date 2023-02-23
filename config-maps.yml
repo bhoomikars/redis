@@ -1,0 +1,11 @@
+apiVersion: v1
+data:
+  database: "0"
+  host: redis-svc
+  port: "6379"
+  val: sagar
+kind: ConfigMap
+metadata:
+  name: config-maps
+  namespace: default
+

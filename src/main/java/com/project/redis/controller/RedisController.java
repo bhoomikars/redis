@@ -2,6 +2,7 @@ package com.project.redis.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class RedisController {
 
+    @Value("${test.val}")
+    private String test;
 
     @Autowired
     private StringRedisTemplate redisTemplate;
 
     @GetMapping("/getHelloWorld")
     public String helloWorldController() {
-        return "hello-world";
+        return test;
     }
 
 
@@ -25,6 +28,7 @@ public class RedisController {
     public ResponseEntity<String> updatePilotClub(@PathVariable String clubId, @PathVariable String win) {
         log.info("update the pilot club");
         try {
+            redisTemplate.opsForValue().set("Pilot", clubId);
             redisTemplate.opsForValue().set("KAFKA:CLUBS:value", clubId);
             redisTemplate.opsForSet().add("kafka:set", clubId);
             redisTemplate.opsForHash().put(clubId, win, "true");
