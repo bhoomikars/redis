@@ -1,4 +1,5 @@
 # Application name is redis-swagger
+Build docker file and deploy in K8
 
 Config maps wiht key-value https://github.com/bhoomikars/redis/commit/7fd989f5800d8488a7981065b269207772dcb8a9
 
