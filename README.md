@@ -60,18 +60,18 @@ data:
   
    kubectl port-forward redis-55b654cbc9-4dgfr 6379:6379 
      
-K8 commands:
+7. K8 commands:
 
-kubectl get pods
-kubectl get deployments
-kubectl get services
-kubectl get configmaps
-kubectl get all
-kubectl describe configmaps config-maps
-kubectl apply -f deployment_redis.yml
-minikube start
-kubectl port-forward redis-swagger-85b687bbdd-zzt9g 30001:8080
-kubectl port-forward redis-55b654cbc9-4dgfr 6379:6379
-redis-cli
-kubectl rollout restart deployment redis-swagger
-java -jar target/redis-swagger-0.0.8-SNAPSHOT.jar --spring.config.location=file:///Users/b0r086n/Desktop/redis/src/main/resources/application-prod.properties
+- kubectl get pods
+- kubectl get deployments
+- kubectl get services
+- kubectl get configmaps
+- kubectl get all
+- kubectl describe configmaps config-maps
+- kubectl apply -f deployment_redis.yml
+- minikube start
+- kubectl port-forward redis-swagger-85b687bbdd-zzt9g 30001:8080
+- kubectl port-forward redis-55b654cbc9-4dgfr 6379:6379
+- redis-cli
+- kubectl rollout restart deployment redis-swagger
+- java -jar target/redis-swagger-0.0.8-SNAPSHOT.jar --spring.config.location=file:///Users/b0r086n/Desktop/redis/src/main/resources/application-prod.properties
