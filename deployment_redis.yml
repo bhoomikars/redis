@@ -1,3 +1,14 @@
+apiVersion: v1
+data:
+  config.app.properties: |
+    spring.redis.database=0
+    spring.redis.host=redis-svc
+    spring.redis.port=6379
+    test.val=prodTestFile
+kind: ConfigMap
+metadata:
+  name: config-maps
+  namespace: default
 
 ---
 apiVersion: v1
@@ -32,35 +43,19 @@ spec:
       labels:
         app: redis-swagger
     spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: config-maps
+            items:
+              - key:  config.app.properties
+                path: application.prod.properties
       containers:
         - name: redis-swagger
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
           image: bhoomikars/redis-swagger:latest
           ports:
             - containerPort: 8080
-          env:
-            - name: spring.redis.database
-              valueFrom:
-                configMapKeyRef:
-                  name: config-maps
-                  key: database
-
-            - name: spring.redis.host
-              valueFrom:
-                configMapKeyRef:
-                  name: config-maps
-                  key: host
-
-            - name: spring.redis.port
-              valueFrom:
-                configMapKeyRef:
-                  name: config-maps
-                  key: port
-
-            - name: test.val
-              valueFrom:
-                configMapKeyRef:
-                  name: config-maps
-                  key: val
-
-
 
