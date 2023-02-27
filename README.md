@@ -75,3 +75,5 @@ data:
 - redis-cli
 - kubectl rollout restart deployment redis-swagger
 - java -jar target/redis-swagger-0.0.8-SNAPSHOT.jar --spring.config.location=file:///Users/b0r086n/Desktop/redis/src/main/resources/application-prod.properties
+
+8. https://github.com/bhoomikars/redis/commit/57d31bdd72e40d383a8b3791f39d82455e95fe1b Ingress.yml changes k8.com is the domain name
