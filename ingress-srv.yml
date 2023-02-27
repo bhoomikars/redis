@@ -1,0 +1,58 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+
+metadata:
+
+  name: ingress-service
+
+  annotations:
+
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+
+spec:
+
+  rules:
+
+    - host: k8.com
+
+      http:
+
+        paths:
+
+          - path: /redis-svc/(.*)
+
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: redis-swagger
+
+                port:
+
+                  number: 8085
+
+          - path: /hello-svc/(.*)
+
+            pathType: Prefix
+
+            backend:
+
+              service:
+
+                name: hello
+
+                port:
+
+                  number: 8080
+
+
+
+
+
+
+
+
+
